@@ -30,8 +30,13 @@ class Controller extends BaseController
     }
 
     public function insertRow(){
-        DB::table('users')->insert(
-            ['email' => 'aarti@example.com', 'password' => 'aarti123']
-        );
+        // DB::table('users')->insert(
+        //     ['email' => 'aarti@example.com', 'password' => 'aarti123']
+        // );
+        $user = new User;
+
+$user->email = 'aarti@gmail.com';
+$user->password = 'aarti123';
+$user->save();
     }
 }
