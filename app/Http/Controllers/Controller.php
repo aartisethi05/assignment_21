@@ -34,7 +34,11 @@ class Controller extends BaseController
         //     ['email' => 'aarti@example.com', 'password' => 'aarti123']
         // );
         $user = new User;
-
+        $user->name = 'aarti';
+        $user->created_at = '2019-04-02 15:25:37';
+        $user->updated_at = '2019-04-02 15:25:37';
+        $user->email_verified_at = '2019-04-02 15:25:37';
+        $user->remember_token = 'aarti';
 $user->email = 'aarti@gmail.com';
 $user->password = 'aarti123';
 $user->save();
