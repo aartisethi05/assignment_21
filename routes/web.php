@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 Route::post('/recover_password', 'Controller@recover_password');
 Route::post('/change_password', 'Controller@change_password');
-Route::post('/insert', 'Controller@insertRow');
+Route::get('/insert', 'Controller@insertRow');
