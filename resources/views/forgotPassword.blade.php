@@ -19,6 +19,7 @@
   <div class="row mt-5">
   <div class="col-sm-3"></div>
     <div class="col-sm-6">
+    (For reference: Please enter email: aarti@gmail.com)
     <input type="text" name="email" id="email" placeholder="Enter your email" class="size"><br>
     <button type="submit" id="recover" class="btn btn-primary mt-3 mb-3">Recover Password</button>
     <p id="text"></p>
