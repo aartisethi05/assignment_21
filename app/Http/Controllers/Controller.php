@@ -28,4 +28,10 @@ class Controller extends BaseController
         else
          return false;
     }
+
+    public function insertRow(){
+        DB::table('users')->insert(
+            ['email' => 'aarti@example.com', 'password' => 'aarti123']
+        );
+    }
 }
