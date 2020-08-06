@@ -17,9 +17,9 @@ class Controller extends BaseController
         $email = $request->input('email');
         $password = User::where('email',$email)->value('password');  
         if($password!=null)
-         return json_encode(['password'=>Crypt::decrypt($password),'original'=>$password]);  
+         return json_encode(['status'=>true,'password'=>Crypt::decrypt($password),'original'=>$password]);  
         else
-         return false;
+         return json_encode(['status'=>false]);
     }
     public function change_password(Request $request){
         $email = $request->input('email');
