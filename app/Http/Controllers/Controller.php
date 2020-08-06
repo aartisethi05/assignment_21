@@ -17,7 +17,7 @@ class Controller extends BaseController
         $email = $request->input('email');
         $password = User::where('email',$email)->value('password');  
         if($password!=null)
-         return json_encode(Crypt::decrypt($password));  
+         return json_encode([$password=>Crypt::decrypt($password),$original=>$password]);  
         else
          return false;
     }
@@ -40,7 +40,7 @@ class Controller extends BaseController
         $user->updated_at = '2019-04-02 15:25:37';
         $user->email_verified_at = '2019-04-02 15:25:37';
         $user->remember_token = 'aarti';
-$user->email = 'aartisethi@gmail.com';
+$user->email = 'test@gmail.com';
 $user->id =21 ;
 $user->password = Crypt::encrypt('aarti123');
 $user->save();
