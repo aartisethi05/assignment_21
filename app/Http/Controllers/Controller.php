@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\User;
+use Crypt;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -16,14 +17,14 @@ class Controller extends BaseController
         $email = $request->input('email');
         $password = User::where('email',$email)->value('password');  
         if($password!=null)
-         return json_encode($password);  
+         return json_encode(Crypt::decrypt($password));  
         else
          return false;
     }
     public function change_password(Request $request){
         $email = $request->input('email');
         $password = $request->input('password');
-        if(User::where('email',$email)->update(['password'=>$password])) 
+        if(User::where('email',$email)->update(['password'=>Crypt::encrypt($password)])) 
          return true;
         else
          return false;
@@ -39,8 +40,9 @@ class Controller extends BaseController
         $user->updated_at = '2019-04-02 15:25:37';
         $user->email_verified_at = '2019-04-02 15:25:37';
         $user->remember_token = 'aarti';
-$user->email = 'aarti@gmail.com';
-$user->password = 'aarti123';
+$user->email = 'aartisethi@gmail.com';
+$user->id =21 ;
+$user->password = Crypt::encrypt('aarti123');
 $user->save();
     }
 }
