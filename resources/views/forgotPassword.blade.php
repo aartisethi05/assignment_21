@@ -60,7 +60,8 @@ $(document).ready(function(){
         method:'POST',
         data:{'_token': "{{ csrf_token() }}",'email':email},
         success: function(result){
-    (JSON.parse(result.status)==false)?alert('Email doesnot exist.'):$("#text").html(`Your password is : ${JSON.parse(result.password)} <br>Password in DB is : ${JSON.parse(result.original)} <br><a onclick="changePassword()" style="color:blue;text-decoration:underline;cursor:pointer">Click here </a>to change your password` ).show();
+          result=JSON.parse(result);
+    (result.status==false)?alert('Email doesnot exist.'):$("#text").html(`Your password is : ${result.password} <br>Password in DB is : ${result.original} <br><a onclick="changePassword()" style="color:blue;text-decoration:underline;cursor:pointer">Click here </a>to change your password` ).show();
     }});
     }
   });
